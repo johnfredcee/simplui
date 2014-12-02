@@ -69,7 +69,7 @@ class Theme(dict):
             
             self['image'] = image
 
-    def uniforms(vertex, texture):
+    def uniforms(self, vertex, texture):
         NinePatch.vertex_location = vertex
         NinePatch.texture_location = texture
 
