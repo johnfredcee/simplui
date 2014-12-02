@@ -253,8 +253,8 @@ class NinePatch(object):
         height = max(height, self.height + 2)
 
         glBindTexture(self.texture.target, self.texture.id)
-        vertex_attribute = 'v2i' if self.vertex_location == -1 else "%d2i" % self.vertex_location
-        texture_attribute = 't2f' if self.texture_location == -1 else "%d2f" % self.texture_location
+        vertex_attribute = 'v2i' if self.vertex_location == -1 else "%dg2i" % self.vertex_location
+        texture_attribute = 't2f' if self.texture_location == -1 else "%dg2f" % self.texture_location
         pyglet.graphics.draw_indexed(16, GL_QUADS, self.indices, (vertex_attribute, self.get_vertices(x, y, width, height)), (texture_attribute, self.tex_coords))
         glBindTexture(self.texture.target, 0)
 
@@ -267,8 +267,8 @@ class NinePatch(object):
             )
 
     def build_vertex_list(self, batch, group):
-        vertex_attribute = 'v2i' if self.vertex_location == -1 else "%d2i" % self.vertex_location
-        texture_attribute = 't2f' if self.texture_location == -1 else "%d2f" % self.texture_location
+        vertex_attribute = 'v2i' if self.vertex_location == -1 else "%dg2i" % self.vertex_location
+        texture_attribute = 't2f' if self.texture_location == -1 else "%dg2f" % self.texture_location
         return batch.add_indexed(16, GL_QUADS, pyglet.graphics.TextureGroup(self.texture, group), self.indices,  vertex_attribute, (texture_attribute, self.tex_coords))
 
     def update_vertex_list(self, vertex_list, x, y, width, height):
