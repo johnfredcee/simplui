@@ -1,9 +1,8 @@
-import ez_setup
-ez_setup.use_setuptools()
 
-from setuptools import setup, find_packages
+import setuptools
 
-setup(
+
+setuptools.setup(
 	name = 'simplui',
 	version = '1.0.4',
 	author = 'Tristam MacDonald',
@@ -22,7 +21,8 @@ setup(
 		'Topic :: Scientific/Engineering :: Human Machine Interfaces',
 		'Topic :: Software Development :: User Interfaces',
 	],
-	
-	packages = find_packages(),
+	include_package_data=True,
+	package_data = { 'simplui' : [ "themes/macos/*.json", "themes/macos/*.png", "themes/pywidget/*.json", "themes/pywidget/*.png" ] },
+	packages = setuptools.find_packages(),
 	install_requires = ['simplejson >= 2.0', 'pyglet >= 1.1']
 )

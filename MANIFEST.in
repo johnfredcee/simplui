@@ -1,2 +1,4 @@
-include ez_setup.py
-include LICENSE.txt
+include themes/macos/theme.json
+include themes/macos/theme.png
+include themes/pywidget/theme.json
+include themes/pywidget/theme.png
